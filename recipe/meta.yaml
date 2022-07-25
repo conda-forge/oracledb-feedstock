@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/oracledb-{{ version }}.tar.gz
   sha256: c5df164aee16ce35c92d6ccbc992a4eabcff304726736defc249e14785acd017
-  patches:
-    - 0001-fix-osx-arch.patch
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
