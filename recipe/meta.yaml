@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python
-    - cryptography >=3.4
+    - cryptography >=3.2.1
 
 test:
   imports:
