@@ -23,6 +23,7 @@ requirements:
     - python
     - cython
     - pip
+    - setuptools >=40.6.0
   run:
     - python
     - cryptography >=3.2.1
