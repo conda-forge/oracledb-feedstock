@@ -1,5 +1,5 @@
 {% set name = "oracledb" %}
-{% set version = "2.1.2" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/oracledb-{{ version }}.tar.gz
-  sha256: 3054bcc295d7378834ba7a5aceb865985e954915f9b07a843ea84c3824c6a0b2
+  sha256: f52c7df38b13243b5ce583457b80748a34682b9bb8370da2497868b71976798b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -19,6 +19,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - cython
