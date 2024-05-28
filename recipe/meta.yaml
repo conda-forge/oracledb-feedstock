@@ -1,5 +1,5 @@
 {% set name = "oracledb" %}
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/oracledb-{{ version }}.tar.gz
-  sha256: f52c7df38b13243b5ce583457b80748a34682b9bb8370da2497868b71976798b
+  sha256: 8464c6f0295f3318daf6c2c72c83c2dcbc37e13f8fd44e3e39ff8665f442d6b6
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
