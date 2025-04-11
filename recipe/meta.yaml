@@ -1,5 +1,5 @@
 {% set name = "oracledb" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/oracledb-{{ version }}.tar.gz
-  sha256: 64dc86ee5c032febc556798b06e7b000ef6828bb0252084f6addacad3363db85
+  sha256: f78cf7452128fa564a9819d213573a7c93e3b053b2b2ef505f183ce7e47b1e7b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -24,7 +24,7 @@ requirements:
     - python
     - cython
     - pip
-    - setuptools >=40.6.0
+    - setuptools >=77.0.0
   run:
     - python
     - cryptography >=3.2.1
