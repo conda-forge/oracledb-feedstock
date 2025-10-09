@@ -22,13 +22,13 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - python
-    - cython 3.1
+    - cython >=3.1,<4
     - pip
     - setuptools >=77.0.0
   run:
-    - typing_extensions >=4.14.0
     - python
     - cryptography >=3.2.1
+    - typing_extensions >=4.14.0
 
 test:
   imports:
