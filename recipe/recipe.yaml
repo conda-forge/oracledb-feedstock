@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: oracledb
+  version: 3.4.2
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/oracledb-${{ version }}.tar.gz
+  sha256: 46e0f2278ff1fe83fbc33a3b93c72d429323ec7eed47bc9484e217776cd437e5
+
+build:
+  number: 1
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: 
+        - python
+        - cython >=3.1,<4
+        - cross-python_${{ target_platform }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+  host:
+    - python
+    - cython >=3.1,<4
+    - pip
+    - setuptools >=77.0.0
+  run:
+    - python
+    - cryptography >=3.2.1
+    - typing_extensions >=4.14.0
+
+tests:
+  - python:
+      imports:
+        - oracledb
+      pip_check: true
+
+about:
+  summary: Python interface to Oracle Database
+  license: Apache-2.0
+  license_file:
+    - LICENSE.txt
+    - NOTICE.txt
+  homepage: https://oracle.github.io/python-oracledb
+  repository: https://github.com/oracle/python-oracledb
+  documentation: https://python-oracledb.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - xylar
