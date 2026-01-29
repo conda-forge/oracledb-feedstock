@@ -19,11 +19,10 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cython >=3.1,<4
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
+      then: 
+        - python
+        - cython >=3.1,<4
+        - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
   host:
@@ -40,11 +39,7 @@ tests:
   - python:
       imports:
         - oracledb
-  - requirements:
-      run:
-        - pip
-    script:
-      - pip check
+      pip_check: true
 
 about:
   summary: Python interface to Oracle Database
