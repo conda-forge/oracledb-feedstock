@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: oracledb
-  version: 3.4.2
+  version: "4.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,16 +10,16 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/oracledb-${{ version }}.tar.gz
-  sha256: 46e0f2278ff1fe83fbc33a3b93c72d429323ec7eed47bc9484e217776cd437e5
+  sha256: 244ebe47c4a4e32bc07a4206192de04d92fbfeb72bf11a01493e3a710bd4b19a
 
 build:
-  number: 1
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: 
+      then:
         - python
         - cython >=3.1,<4
         - cross-python_${{ target_platform }}
