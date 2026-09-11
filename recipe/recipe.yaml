@@ -21,7 +21,7 @@ requirements:
     - if: build_platform != target_platform
       then:
         - python
-        - cython ~=3.2
+        - cython >=3.2,<4
         - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
@@ -30,7 +30,7 @@ requirements:
     - pip
     - setuptools >=77.0.0
     - wheel
-    - cython ~=3.2
+    - cython >=3.2,<4
   run:
     - python
     - cryptography >=3.2.1
