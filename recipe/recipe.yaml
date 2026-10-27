@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: oracledb
-  version: "26.0.1"
+  version: "26.1.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/oracledb-${{ version }}.tar.gz
-  sha256: 786397a6b37e94ebfa6c1c6cd026755eb8fccfd39e15bcb64cb5879491882aef
+  sha256: 18e1e78073a1479326e8766deb8b9358ae7880d80b65f562580b010da07c73ee
 
 build:
   number: 0
